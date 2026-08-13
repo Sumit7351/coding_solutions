@@ -1,4 +1,4 @@
-# Weather Observation Station 3
+# Weather Observation Station 4
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -28,7 +28,7 @@ For example, if there are three records in the table with **CITY** values 'New Y
 **Language:** db2  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-13T10:26:12.947Z  
+**Submitted:** 2026-08-13T10:28:28.080Z  
 
 ```db2
 
@@ -37,7 +37,7 @@ For example, if there are three records in the table with **CITY** values 'New Y
     1. Please append a semicolon ";" at the end of the query and enter your query in a single line to avoid error.
     2. The AS keyword causes errors, so follow this convention: "Select t.Field From table1 t" instead of "select t.Field From table1 AS t"
     3. Type your code immediately after comment. Don't leave any blank line.
-*/SELECT DISTINCT CITY FROM STATION WHERE MOD(ID,2)=0;
+*/SELECT COUNT(CITY)-COUNT(DISTINCT CITY) FROM STATION;
 
 ```
 
