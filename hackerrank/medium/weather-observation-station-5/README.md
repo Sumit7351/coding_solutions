@@ -1,4 +1,4 @@
-# Japanese Cities' Names
+# Weather Observation Station 5
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -24,19 +24,17 @@ where **LAT\_N** is the northern latitude and **LONG\_W** is the western longitu
 
 ## Solution
 
-**Language:** db2  
+**Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-13T10:31:00.721Z  
+**Submitted:** 2026-08-13T10:36:32.515Z  
 
-```db2
-
+```sql
 /*
-    Enter your query here and follow these instructions:
-    1. Please append a semicolon ";" at the end of the query and enter your query in a single line to avoid error.
-    2. The AS keyword causes errors, so follow this convention: "Select t.Field From table1 t" instead of "select t.Field From table1 AS t"
-    3. Type your code immediately after comment. Don't leave any blank line.
-*/SELECT NAME FROM CITY WHERE COUNTRYCODE='JPN';
+Enter your query here.
+*/
+SELECT CITY,LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY) ASC,CITY ASC LIMIT 1;
+SELECT CITY,LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY) DESC,CITY DESC LIMIT 1;
 
 ```
 
