@@ -1,6 +1,7 @@
 /*
 Enter your query here.
+*//*
+Enter your query here.
 */SELECT DISTINCT CITY
 FROM STATION
-WHERE CITY REGEXP '^[^AEIOU]'
-    OR CITY REGEXP '[^AEIOU]$';
+WHERE CITY REGEXP '^[^AEIOU].*[^AEIOU]$';
