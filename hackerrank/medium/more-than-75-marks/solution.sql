@@ -1,7 +1,6 @@
 /*
 Enter your query here.
-*//*
-Enter your query here.
-*/SELECT DISTINCT CITY
-FROM STATION
-WHERE CITY REGEXP '^[^AEIOU].*[^AEIOU]$';
+*/SELECT Name
+FROM STUDENTS
+WHERE Marks>75
+ORDER BY RIGHT(Name,3) ASC,ID ASC;
