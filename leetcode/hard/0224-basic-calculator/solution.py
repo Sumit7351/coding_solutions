@@ -1,73 +1,62 @@
+import re
 class Solution:
-    def eval(self, a, b, op):
+    def eval(self,a,b,op):
         match op:
             case "+":
-                return a + b
+                return a+b
             case "-":
-                return a - b
+                return a-b
 
-    def convert_postfix(self, s):
-        stack = []
-        output = []
-        i = 0
-        prev = None
-
-        while i < len(s):
-
-            if s[i].isdigit():
-                num = ""
-
-                while i < len(s) and s[i].isdigit():
-                    num += s[i]
-                    i += 1
-
-                output.append(num)
-                prev = "num"
-                continue
-
-            elif s[i] == "(":
+    def convert_postfix(self,s):
+        stack=[]
+        output=[]
+        i=0
+        prev=None
+        while(i<len(s)):
+            if s[i]=="(":
                 stack.append("(")
-                prev = "("
+                prev="("
 
+            elif s[i].isdigit():
+                num=""
+                while(i<len(s) and s[i].isdigit()):
+                    num+=s[i]
+                    i+=1
+                output.append(num)
+                prev="num"
+                continue
+            
             elif s[i] in "+-":
-
-                # Unary minus
-                if s[i] == "-" and (prev is None or prev == "(" or prev == "op"):
+                if(s[i]=="-" and (prev==None or prev=="(" or prev=="op")):
                     output.append("0")
-
                 while stack and stack[-1] != "(":
                     output.append(stack.pop())
-
                 stack.append(s[i])
-                prev = "op"
+                prev="op"
 
-            elif s[i] == ")":
-                while stack and stack[-1] != "(":
+            elif s[i]==")":
+                while(stack and stack[-1]!="("):
                     output.append(stack.pop())
-
                 stack.pop()
-                prev = "num"
-
-            i += 1
-
+            i+=1
         while stack:
             output.append(stack.pop())
-
+        
         return output
 
     def calculate(self, s: str) -> int:
-        new = self.convert_postfix(s)
-
-        stack = []
-
+        new=self.convert_postfix(s)
+        stack=[]
+        ans=0
         for ch in new:
             if ch.isdigit():
                 stack.append(int(ch))
-
             elif ch in "+-":
-                val1 = stack.pop()
-                val2 = stack.pop()
+                val1=stack.pop()
+                val2=stack.pop()
 
-                stack.append(self.eval(val2, val1, ch))
+                ans=self.eval(val2,val1,ch)
+                stack.append(ans)
 
-        return stack[-1]
+        return int(stack[-1])
+        
